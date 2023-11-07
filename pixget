@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# Get a 124x124 Pixel Art image
+#
+
+query="$*"
+curl 'https://api-inference.huggingface.co/models/nerijs/pixel-art-xl' \
+  -H 'content-type: application/json' \
+  --data-raw "{\"inputs\":\"$query\"}" \
+  --compressed -s -o - | convert - -resize 124x124 "${query// /_}.png" >/dev/null 2>&1 || echo "Error: Rate limit reached"
+
