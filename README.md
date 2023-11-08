@@ -29,4 +29,5 @@ These features would be nice to add:
 - Option to use API key.
 - Better error messages for failed requests.
 - Add a rate limiter, 2 per minute is a good default.
+
 Submit a PR!
